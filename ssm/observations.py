@@ -972,7 +972,7 @@ class AutoRegressiveObservations(_AutoRegressiveObservationsBase):
     @Sigmas_init.setter
     def Sigmas_init(self, value):
         assert value.shape == (self.K, self.D, self.D)
-        self._sqrt_Sigmas_init = np.linalg.cholesky(value + 1e-8 * np.eye(self.D))
+        self._sqrt_Sigmas_init = np.linalg.cholesky(value + 1e-6 * np.eye(self.D))
 
     @property
     def Sigmas(self):
@@ -981,7 +981,7 @@ class AutoRegressiveObservations(_AutoRegressiveObservationsBase):
     @Sigmas.setter
     def Sigmas(self, value):
         assert value.shape == (self.K, self.D, self.D)
-        self._sqrt_Sigmas = np.linalg.cholesky(value + 1e-8 * np.eye(self.D))
+        self._sqrt_Sigmas = np.linalg.cholesky(value + 1e-6 * np.eye(self.D))
 
     @property
     def params(self):
